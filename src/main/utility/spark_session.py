@@ -8,8 +8,11 @@ from src.main.utility.logging_config import *
 
 def spark_session():
     spark = SparkSession.builder.master("local[*]") \
-        .appName("manish_spark2")\
-        .config("spark.driver.extraClassPath", "C:\\my_sql_jar\\mysql-connector-java-8.0.26.jar") \
+        .appName("anusha_Spark")\
+        .config("spark.jars", "D:\\my_sql_jar\\mysql-connector-j-9.2.0\\mysql-connector-j-9.2.0.jar") \
         .getOrCreate()
+    spark.conf.set("spark.hadoop.io.native.lib.available", "false")
     logger.info("spark session %s",spark)
     return spark
+
+spark_session()
